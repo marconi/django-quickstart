@@ -3,7 +3,7 @@
         <label class="checkbox">
             {{ field }}
             <span 
-                {% if field.name in todo_list_form.done_items %}
+                {% if field.field.is_done %}
                     class="done"
                 {% endif %}>
                 {{ field.label }}
