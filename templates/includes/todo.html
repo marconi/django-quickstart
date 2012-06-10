@@ -3,17 +3,12 @@
         <label class="checkbox">
             {{ field }}
             <span 
-                {% if field.field.is_done %}
+                {% if field.field.todo.is_done %}
                     class="done"
                 {% endif %}>
                 {{ field.label }}
             </span>
-            {% if field.errors %}
-                <span class="help-inline">{{ field.errors }}</span>
-            {% endif %}
-            {% if field.help_text %}
-                <p class="help-block">{{ field.help_text }}</p>
-            {% endif %}
+            <p class="help-block">{{ field.field.todo.created|date:"M d, Y h:i A" }}</p>
         </label>
     </div>
 </div>

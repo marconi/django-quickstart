@@ -14,3 +14,8 @@
 #todo-list .done {
     text-decoration: line-through;
 }
+
+#todo-list .help-block {
+    font-size: 11px;
+    margin-top: 0;
+}

@@ -16,7 +16,7 @@ class TodoListForm(forms.Form):
             field = str(todo.id)
             self.fields[field] = forms.BooleanField(
                 required=False, label=todo.name)
-            self.fields[field].is_done = todo.is_done
+            self.fields[field].todo = todo
 
     def clean(self):
         selected = [tid for tid, val in self.cleaned_data.items() if val]
