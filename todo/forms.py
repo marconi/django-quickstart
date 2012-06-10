@@ -21,8 +21,7 @@ class TodoListForm(forms.Form):
                 required=False, label=todo.name)
 
     def clean(self):
-        data = self.cleaned_data
-        selected = filter(lambda item: True if item[1] else False, data.items())
+        selected = [tid for tid, val in self.cleaned_data.items() if val]
         if not selected:
             raise forms.ValidationError("You need to select one or more items.")
-        return [key for key, _ in selected]
+        return selected

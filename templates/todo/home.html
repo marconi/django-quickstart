@@ -21,7 +21,7 @@
         <fieldset>
             <legend>Items Todo</legend>
             {% for field in todo_list_form %}
-                {% include "includes/field_checkbox.html" %}
+                {% include "includes/todo.html" %}
             {% empty %}
                 <p>You don't have anymore items todo.</p>
             {% endfor %}
