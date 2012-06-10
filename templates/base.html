@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>TODO</title>
+    <style type="text/css">
+        fieldset {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+{% if messages %}
+<section id="messages">
+    <ul>
+        {% for message in messages %}
+            <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+{% block content %}
+{% endblock content %}
+
+</body>
+</html>

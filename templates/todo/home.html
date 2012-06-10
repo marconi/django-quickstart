@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" action="{% url new_todo %}">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Add new todo</legend>
+        <div class="field">
+            {{ todo_form.name.label_tag }}
+            {{ todo_form.name }}
+            {% if todo_form.name.errors %}
+                {{ todo_form.name.errors }}
+            {% endif %}
+        </div>
+        <input type="submit" name="action" value="Add">
+    </fieldset>
+</form>
+
+<form method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Items todo</legend>
+        {% for field in todo_list_form %}
+            <div class="field">
+                {{ field }}
+                <label for="{{ field.auto_id }}"
+                    {% if field.name in todo_list_form.done_items %}
+                        style="text-decoration:line-through;"
+                    {% endif %}>
+                    {{ field.label }}
+                </label>
+            </div>
+        {% empty %}
+            <p>You don't have anymore items todo.</p>
+        {% endfor %}
+    </fieldset>
+    <br />
+    <input type="submit" name="action" value="Done">
+    <input type="submit" name="action" value="Delete">
+</form>
+{% endblock content %}
