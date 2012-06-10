@@ -24,11 +24,12 @@
             <div class="field">
                 {{ field }}
                 <label for="{{ field.auto_id }}"
-                    {% if field.name in todo_list_form.done_items %}
+                    {% if field.field.todo.is_done %}
                         style="text-decoration:line-through;"
                     {% endif %}>
                     {{ field.label }}
                 </label>
+                <span> - {{ field.field.todo.created|date:"M d, Y h:i A" }}</span>
             </div>
         {% empty %}
             <p>You don't have anymore items todo.</p>
