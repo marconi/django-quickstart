@@ -1,0 +1,19 @@
+<div class="control-group {% if field.errors %}error{% endif %}">
+    <div class="controls">
+        <label class="checkbox">
+            {{ field }}
+            <span 
+                {% if field.name in todo_list_form.done_items %}
+                    class="done"
+                {% endif %}>
+                {{ field.label }}
+            </span>
+            {% if field.errors %}
+                <span class="help-inline">{{ field.errors }}</span>
+            {% endif %}
+            {% if field.help_text %}
+                <p class="help-block">{{ field.help_text }}</p>
+            {% endif %}
+        </label>
+    </div>
+</div>

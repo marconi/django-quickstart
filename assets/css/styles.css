@@ -1,0 +1,16 @@
+.container {
+    margin-top: 70px;
+}
+
+#messages ul {
+    list-style: none;
+    margin: 0;
+}
+
+#todo-list .control-group {
+    margin-bottom: 5px;
+}
+
+#todo-list .done {
+    text-decoration: line-through;
+}
