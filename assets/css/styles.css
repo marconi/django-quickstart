@@ -19,3 +19,7 @@
     font-size: 11px;
     margin-top: 0;
 }
+
+#todo-list p {
+    padding-top: 10px;
+}
