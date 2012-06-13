@@ -2,6 +2,10 @@
     margin-top: 70px;
 }
 
+.well {
+    position: relative;
+}
+
 #messages ul {
     list-style: none;
     margin: 0;

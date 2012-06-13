@@ -1,35 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="well">
-    <form method="POST" action="{% url new_todo %}" class="form-horizontal">
-        {% csrf_token %}
-        <fieldset>
-            <legend>Add New Todo</legend>
-            <div class="control-group {% if todo_form.name.errors %}error{% endif %}">
-                <label class="control-label" for="{{ todo_form.name.auto_id }}">{{ todo_form.name.label }}</label>
-                <div class="controls">
-                    {{ todo_form.name }}
-                    <input type="submit" name="action" class="btn btn-primary" value="Add">
-                </div>
+<form method="POST" action="{% url new_todo %}" class="form-horizontal">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Add New Todo</legend>
+        <div class="control-group {% if todo_form.name.errors %}error{% endif %}">
+            <label class="control-label" for="{{ todo_form.name.auto_id }}">{{ todo_form.name.label }}</label>
+            <div class="controls">
+                {{ todo_form.name }}
+                <input type="submit" name="action" class="btn btn-primary" value="Add">
             </div>
-        </fieldset>
-    </form>
-
-    <form id="todo-list" method="POST" class="form-horizontal">
-        {% csrf_token %}
-        <fieldset>
-            <legend>Items Todo</legend>
-            {% for field in todo_list_form %}
-                {% include "includes/todo.html" %}
-            {% empty %}
-                <p>You don't have anymore items todo.</p>
-            {% endfor %}
-        </fieldset>
-        <div class="form-actions">
-            <input type="submit" name="action" class="btn btn-success" value="Done">
-            <input type="submit" name="action" class="btn btn-danger" value="Delete">
         </div>
-    </form>
-</div>
+    </fieldset>
+</form>
+
+<form id="todo-list" method="POST" class="form-horizontal">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Items Todo</legend>
+        {% for field in todo_list_form %}
+            {% include "includes/todo.html" %}
+        {% empty %}
+            <p>You don't have anymore items todo.</p>
+        {% endfor %}
+    </fieldset>
+    <div class="form-actions">
+        <input type="submit" name="action" class="btn btn-success" value="Done">
+        <input type="submit" name="action" class="btn btn-danger" value="Delete">
+    </div>
+</form>
 {% endblock content %}
