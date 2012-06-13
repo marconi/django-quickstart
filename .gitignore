@@ -9,4 +9,4 @@
 .coverage
 .DS_Store
 
-*.db
+*.sqlite
