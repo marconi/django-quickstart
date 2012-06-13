@@ -4,6 +4,7 @@
 
 .well {
     position: relative;
+    min-height: 120px;
 }
 
 #messages ul {
